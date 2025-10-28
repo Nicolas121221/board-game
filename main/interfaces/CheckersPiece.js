@@ -1,6 +1,6 @@
-export class ChessPiece {
+export class CheckersPiece {
     constructor(id, path) {
-        this.id = id;
+        this.id = id
         this.addImage(path);
         this.x = 0;
         this.y = 0;

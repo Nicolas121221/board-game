@@ -2,16 +2,16 @@ export class Canvas {
     elements = new Map();
 
     constructor(id, height, width) {
-        this.el = document.querySelector(id);
-
+        this.el = document.querySelector(id)
         this.el.width = width;
         this.el.height = height;
+        this.step = height / 8;
         this.ctx = this.el.getContext("2d");
     }
 
     render() {
         this.elements.forEach((element) => {
-            element.render(this.ctx, this.el);
+            element.render(this.ctx, this.step, this.el);
         });
     }
 

@@ -1,28 +1,24 @@
-import { CanvasObject } from "../interfaces/CanvasObject.js";
-import { PlayerLogic } from "../logic/playerLogic.js";
-
-export class Player extends CanvasObject {
-    constructor(id, step, canvasEl) {
-        super(id, step);
-        this.addEventListeners(canvasEl);
-        this.logic = new PlayerLogic(step);
+export class Player {
+    constructor(id) {
+        this.id = id;
+        this.logic = null;
     }
 
-    render(ctx) {
+    render(ctx, step) {
         if (this.x !== null || this.y !== null) {
             ctx.fillStyle = "#6a8bd7b3";
-            ctx.fillRect(this.x, this.y, this.step, this.step);
+            ctx.fillRect(this.x, this.y, step, step);
         }
 
-        this.logic.render(ctx);
+        this.logic.render(ctx, step);
     }
 
-    addEventListeners(canvasEl) {
+    addEventListeners(canvasEl, step) {
         canvasEl.addEventListener("click", (e) => {
             canvasEl.classList.add("active");
 
-            const x = this.step * Math.floor(e.offsetX / this.step);
-            const y = this.step * Math.floor(e.offsetY / this.step);
+            const x = step * Math.floor(e.offsetX / step);
+            const y = step * Math.floor(e.offsetY / step);
 
             if (this.x === x && this.y === y) {
                 canvasEl.classList.remove("active");
