@@ -4,11 +4,11 @@
     background: rgb(255, 255, 255);
     box-shadow: 0px 0px 0px 4px rgba(16, 16, 35, 1), 0px 0px 0px 6px white,
         0px 0px 10px 10px rgba(16, 16, 35, 1);
-    cursor: url("/assets/cursors/crosshair-opened.cur") 14 14, auto;
+    cursor: url("/src/assets/cursors/crosshair-opened.cur") 14 14, auto;
 }
 
 .active {
-    cursor: url("/assets/cursors/crosshair-closed.cur") 14 14, auto !important;
+    cursor: url("/src/assets/cursors/crosshair-closed.cur") 14 14, auto !important;
 }
 
 .board-container h1 {
