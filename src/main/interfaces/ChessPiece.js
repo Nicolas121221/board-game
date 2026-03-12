@@ -11,6 +11,10 @@ export class ChessPiece {
         this.img.src = path;
     }
 
+    addPieceLogic(PieceLogic){
+        this.pieceLogic = PieceLogic()
+    }
+
     render(ctx, step) {
         if (!this.img.complete) {
             this.img.onload = () => {

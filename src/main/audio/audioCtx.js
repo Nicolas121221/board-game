@@ -15,14 +15,14 @@ export class AudioCtx {
             const osc = this.ctx.createOscillator();
             const gain = this.ctx.createGain();
 
-            osc.type = "sawtooth";
-            osc.frequency.setValueAtTime(294, this.ctx.currentTime);
+            osc.type = "triangle";
+            osc.frequency.setValueAtTime(100, this.ctx.currentTime);
             osc.frequency.linearRampToValueAtTime(
-                340,
+                120,
                 this.ctx.currentTime + 0.1,
             );
 
-            gain.gain.setValueAtTime(0.1, this.ctx.currentTime);
+            gain.gain.setValueAtTime(0.2, this.ctx.currentTime);
 
             osc.connect(gain).connect(this.ctx.destination);
             osc.start();

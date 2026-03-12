@@ -1,0 +1,17 @@
+.game-card {
+    position: absolute;
+    height: 800px;
+    width: 350px;
+    right: 20px;
+    background: #2829416f;
+    box-shadow: 0px 0px 0px 4px rgba(16, 16, 35, 1), 0px 0px 0px 6px white,
+        0px 0px 10px 10px rgba(16, 16, 35, 1);
+    padding: 8px;
+    margin-top: -805px;
+}
+
+.game-card h3 {
+    color: rgb(189, 189, 203);
+    margin-top: 10px;
+    font-size: 20px;
+}

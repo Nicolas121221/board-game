@@ -1,29 +1,66 @@
+import { Pawn } from "../logic/pieces/pawn.js";
+import { Rook } from "../logic/pieces/rook.js";
+import { Knight } from "../logic/pieces/knight.js";
+import { Bishop } from "../logic/pieces/bishop.js";
+import { Queen } from "../logic/pieces/queen.js";
+import { King } from "../logic/pieces/king.js";
+
 const lightColor = "white";
 const darkColor = "blue";
 
-export const lightPawn = `/src/assets/chess/${lightColor}/pawn.png`;
-export const lightPieces = [
-    `/src/assets/chess/${lightColor}/rook.png`,
-    `/src/assets/chess/${lightColor}/knight.png`,
-    `/src/assets/chess/${lightColor}/bishop.png`,
-    `/src/assets/chess/${lightColor}/king.png`,
-    `/src/assets/chess/${lightColor}/queen.png`,
-    `/src/assets/chess/${lightColor}/bishop.png`,
-    `/src/assets/chess/${lightColor}/knight.png`,
-    `/src/assets/chess/${lightColor}/rook.png`,
-];
+const createChessAssetsURL = (color, piece) => {
+    return `/src/assets/chess/${color}/${piece}.png`;
+};
 
-export const darkPawn = `/src/assets/chess/${darkColor}/pawn.png`;
-export const darkPieces = [
-    `/src/assets/chess/${darkColor}/rook.png`,
-    `/src/assets/chess/${darkColor}/knight.png`,
-    `/src/assets/chess/${darkColor}/bishop.png`,
-    `/src/assets/chess/${darkColor}/queen.png`,
-    `/src/assets/chess/${darkColor}/king.png`,
-    `/src/assets/chess/${darkColor}/bishop.png`,
-    `/src/assets/chess/${darkColor}/knight.png`,
-    `/src/assets/chess/${darkColor}/rook.png`,
-];
+export const lightPieces = {
+    pieces: [
+        createChessAssetsURL(lightColor, "rook"),
+        createChessAssetsURL(lightColor, "knight"),
+        createChessAssetsURL(lightColor, "bishop"),
+        createChessAssetsURL(lightColor, "king"),
+        createChessAssetsURL(lightColor, "queen"),
+        createChessAssetsURL(lightColor, "bishop"),
+        createChessAssetsURL(lightColor, "knight"),
+        createChessAssetsURL(lightColor, "rook"),
+    ],
+    pawn: createChessAssetsURL(lightColor, "pawn"),
+    pieceClasses: [
+        new Rook(),
+        new Knight(),
+        new Bishop(),
+        new Queen(),
+        new King(),
+        new Bishop(),
+        new Knight(),
+        new Rook(),
+    ],
+    pawnClass: new Pawn(),
+};
+
+export const darkPieces = {
+    pieces: [
+        createChessAssetsURL(darkColor, "rook"),
+        createChessAssetsURL(darkColor, "knight"),
+        createChessAssetsURL(darkColor, "bishop"),
+        createChessAssetsURL(darkColor, "king"),
+        createChessAssetsURL(darkColor, "queen"),
+        createChessAssetsURL(darkColor, "bishop"),
+        createChessAssetsURL(darkColor, "knight"),
+        createChessAssetsURL(darkColor, "rook"),
+    ],
+    pawn: createChessAssetsURL(darkColor, "pawn"),
+    pieceClasses: [
+        new Rook(),
+        new Knight(),
+        new Bishop(),
+        new Queen(),
+        new King(),
+        new Bishop(),
+        new Knight(),
+        new Rook(),
+    ],
+    pawnClass: new Pawn(),
+};
 
 export const lightKing = `/src/assets/checkers/${lightColor}/king.png`;
 export const lightStone = `/src/assets/checkers/${lightColor}/stone.png`;
