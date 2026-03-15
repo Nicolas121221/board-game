@@ -1,9 +1,10 @@
 export class ChessPiece {
-    constructor(id, path) {
+    constructor(id, path, logic) {
         this.id = id;
         this.addImage(path);
         this.x = 0;
         this.y = 0;
+        this.logic = logic
     }
 
     addImage(path) {

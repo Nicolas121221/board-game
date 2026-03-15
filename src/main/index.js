@@ -9,7 +9,7 @@ import {
     lightPieces,
 } from "./imports/assets.js";
 
-import { OponentLogic } from "./logic/oponentLogic.js";
+import { OpponentLogic } from "./logic/opponentLogic.js";
 import { BoardLogic } from "./logic/boardLogic.js";
 
 // creates the board Class and adds the game logic
@@ -23,19 +23,19 @@ const board = new Board("board");
 // player pieces and logic
 const player = new Player("user");
 player.logic = new ChessLogic();
-player.logic.createPieces(canvas.step, darkPieces.pieces, darkPieces.pawn);
+player.logic.createPieces(canvas.step, lightPieces);
 player.addEventListeners(canvas.el, canvas.step);
 
-// player pieces and logic
-const oponent = new Player("oponent");
-oponent.logic = new OponentLogic();
-oponent.logic.createPieces(canvas.step, lightPieces.pieces, lightPieces.pawn);
+// opponent pieces and logic
+const opponent = new Player("opponent");
+opponent.logic = new OpponentLogic();
+opponent.logic.createPieces(canvas.step, darkPieces);
 
 // board captions and audio feature
 const captions = new BoardCaptions("captions", canvas.step);
 const audioCtx = new AudioCtx(canvas.el);
 
-canvas.addElement(board, player, oponent, captions);
+canvas.addElement(board, player, opponent, captions);
 canvas.render();
 
 document.addEventListener("click", () => {

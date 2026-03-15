@@ -1,4 +1,3 @@
-import { Pawn } from "../logic/pieces/pawn.js";
 import { Rook } from "../logic/pieces/rook.js";
 import { Knight } from "../logic/pieces/knight.js";
 import { Bishop } from "../logic/pieces/bishop.js";
@@ -13,7 +12,7 @@ const createChessAssetsURL = (color, piece) => {
 };
 
 export const lightPieces = {
-    pieces: [
+    urls: [
         createChessAssetsURL(lightColor, "rook"),
         createChessAssetsURL(lightColor, "knight"),
         createChessAssetsURL(lightColor, "bishop"),
@@ -24,21 +23,20 @@ export const lightPieces = {
         createChessAssetsURL(lightColor, "rook"),
     ],
     pawn: createChessAssetsURL(lightColor, "pawn"),
-    pieceClasses: [
+    classes: [
         new Rook(),
         new Knight(),
         new Bishop(),
-        new Queen(),
         new King(),
+        new Queen(),
         new Bishop(),
         new Knight(),
         new Rook(),
     ],
-    pawnClass: new Pawn(),
 };
 
 export const darkPieces = {
-    pieces: [
+    urls: [
         createChessAssetsURL(darkColor, "rook"),
         createChessAssetsURL(darkColor, "knight"),
         createChessAssetsURL(darkColor, "bishop"),
@@ -49,7 +47,7 @@ export const darkPieces = {
         createChessAssetsURL(darkColor, "rook"),
     ],
     pawn: createChessAssetsURL(darkColor, "pawn"),
-    pieceClasses: [
+    classes: [
         new Rook(),
         new Knight(),
         new Bishop(),
@@ -59,7 +57,6 @@ export const darkPieces = {
         new Knight(),
         new Rook(),
     ],
-    pawnClass: new Pawn(),
 };
 
 export const lightKing = `/src/assets/checkers/${lightColor}/king.png`;

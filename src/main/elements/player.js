@@ -1,11 +1,15 @@
 export class Player {
-    constructor(id) {
+    constructor(id, logic) {
         this.id = id;
-        this.logic = null;
+        this.logic = logic
+    }
+
+    toggleClick(){
+        this.canClick = !this.canClick
     }
 
     render(ctx, step) {
-        if (this.x !== null || this.y !== null) {
+        if (this.x !== null || this.y !== null && !canClick) {
             ctx.fillStyle = "#6a8bd7b3";
             ctx.fillRect(this.x, this.y, step, step);
         }

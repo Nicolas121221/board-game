@@ -1,25 +1,25 @@
 export class BoardLogic {
     constructor(canvasObj) {
         this.canvasObj = canvasObj;
-        this.boardStruc = new Array();
+        this.boardStruct = new Array();
 
         this.start();
     }
 
     start() {
         for (let i = 0; i < 8; i++) {
-            this.boardStruc[i] = new Array();
+            this.boardStruct[i] = new Array();
             for (let j = 0; j < 8; j++) {
-                this.boardStruc[i][j] = null;
+                this.boardStruct[i][j] = null;
             }
         }
 
         for (let i = 0; i < 8; i++) {
             for (let j = 0; j < 8; j++) {
                 if (i === 0 || i === 7) {
-                    this.boardStruc[i][j] = i === 0 ? `${i}${j}b` : `${i}${j}w`;
+                    this.boardStruct[i][j] = i === 0 ? `${i}${j}b` : `${i}${j}w`;
                 } else if (i === 1 || i === 6) {
-                    this.boardStruc[i][j] = i === 1 ? `${i}${j}b` : `${i}${j}w`;
+                    this.boardStruct[i][j] = i === 1 ? `${i}${j}b` : `${i}${j}w`;
                 }
                 continue;
             }

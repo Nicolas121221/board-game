@@ -1,6 +1,6 @@
 import { ChessPiece } from "../interfaces/ChessPiece.js";
 
-export class OponentLogic {
+export class OpponentLogic {
     constructor() {
         this.pieces = new Map();
         this.score = 0;
@@ -12,7 +12,7 @@ export class OponentLogic {
 
     addPieces(...chessPieces) {
         chessPieces.forEach((chessPiece) =>
-            this.pieces.set(chessPiece.id, chessPiece)
+            this.pieces.set(chessPiece.id, chessPiece),
         );
     }
 
@@ -20,21 +20,20 @@ export class OponentLogic {
         keys.forEach((key) => this.pieces.delete(key));
     }
 
-    createPieces(step, piecesUrl, pawnUrl) {
-        for (const pieceIndex in piecesUrl) {
+    createPieces(step, imports) {
+        for (const pieceIndex in imports.urls) {
             const chessPiece = new ChessPiece(
                 `0${pieceIndex}b`,
-                piecesUrl[pieceIndex]
+                imports.urls[pieceIndex],imports.classes[pieceIndex]
             );
             chessPiece.x = step * pieceIndex;
-            chessPiece.y = step * 7;
             this.addPieces(chessPiece);
         }
 
         for (let i = 0; i < 8; i++) {
-            const chessPiece = new ChessPiece(`1${i}b`, pawnUrl);
+            const chessPiece = new ChessPiece(`1${i}b`, imports.pawn);
             chessPiece.x = step * i;
-            chessPiece.y = step * 6;
+            chessPiece.y = step;
             this.addPieces(chessPiece);
         }
     }

@@ -1,4 +1,5 @@
 import { ChessPiece } from "../interfaces/ChessPiece.js";
+import { Pawn } from "./pieces/pawn.js";
 
 export class ChessLogic {
     constructor() {
@@ -20,17 +21,19 @@ export class ChessLogic {
         keys.forEach((key) => this.pieces.delete(key));
     }
 
-    createPieces(step, piecesUrl, pawnUrl) {
-        for (const pieceIndex in piecesUrl) {
-            const chessPiece = new ChessPiece(`${6}${pieceIndex}w`, piecesUrl[pieceIndex]);
+    createPieces(step, imports) {
+        for (const pieceIndex in imports.urls) {
+            const chessPiece = new ChessPiece(`${pieceIndex}${7}`, imports.urls[pieceIndex], imports.classes[pieceIndex]);
             chessPiece.x = step * pieceIndex;
+            chessPiece.y = step * 7
             this.addPieces(chessPiece);
         }
 
         for (let i = 0; i < 8; i++) {
-            const chessPiece = new ChessPiece(`${7}${i}w`, pawnUrl);
+            const chessPiece = new ChessPiece(`${i}${6}`, imports.pawn);
             chessPiece.x = step * i;
-            chessPiece.y = step;
+            chessPiece.y = step * 6;
+            chessPiece.logic = new Pawn()
             this.addPieces(chessPiece);
         }
     }
