@@ -1,4 +1,5 @@
 import { ChessPiece } from "../interfaces/ChessPiece.js";
+import { Pawn } from "./pieces/pawn.js";
 
 export class OpponentLogic {
     constructor() {
@@ -31,7 +32,7 @@ export class OpponentLogic {
         }
 
         for (let i = 0; i < 8; i++) {
-            const chessPiece = new ChessPiece(`1${i}b`, imports.pawn);
+            const chessPiece = new ChessPiece(`1${i}b`, imports.pawn, Pawn);
             chessPiece.x = step * i;
             chessPiece.y = step;
             this.addPieces(chessPiece);

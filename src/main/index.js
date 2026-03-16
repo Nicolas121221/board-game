@@ -10,12 +10,11 @@ import {
 } from "./imports/assets.js";
 
 import { OpponentLogic } from "./logic/opponentLogic.js";
-import { BoardLogic } from "./logic/boardLogic.js";
+import { Game } from "./logic/game.js";
 
 // creates the board Class and adds the game logic
 const canvas = new Canvas("#canvas", 800, 800);
-const boardLogic = new BoardLogic();
-canvas.board = boardLogic;
+const game = new Game(canvas);
 
 // the layout of the board
 const board = new Board("board");

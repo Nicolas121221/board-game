@@ -4,12 +4,8 @@ export class Player {
         this.logic = logic
     }
 
-    toggleClick(){
-        this.canClick = !this.canClick
-    }
-
     render(ctx, step) {
-        if (this.x !== null || this.y !== null && !canClick) {
+        if (this.x !== null || this.y !== null) {
             ctx.fillStyle = "#6a8bd7b3";
             ctx.fillRect(this.x, this.y, step, step);
         }

@@ -1,10 +1,17 @@
 export class ChessPiece {
-    constructor(id, path, logic) {
+    constructor(id, path, Logic) {
         this.id = id;
         this.addImage(path);
         this.x = 0;
         this.y = 0;
-        this.logic = logic
+        this.path = path;
+        this.class = Logic;
+
+        this.createLogic(Logic);
+    }
+
+    createLogic(Logic) {
+        this.logic = new Logic();
     }
 
     addImage(path) {
@@ -12,8 +19,8 @@ export class ChessPiece {
         this.img.src = path;
     }
 
-    addPieceLogic(PieceLogic){
-        this.pieceLogic = PieceLogic()
+    addPieceLogic(PieceLogic) {
+        this.pieceLogic = PieceLogic();
     }
 
     render(ctx, step) {

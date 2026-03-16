@@ -30,10 +30,10 @@ export class ChessLogic {
         }
 
         for (let i = 0; i < 8; i++) {
-            const chessPiece = new ChessPiece(`${i}${6}`, imports.pawn);
+            const chessPiece = new ChessPiece(`${i}${6}`, imports.pawn, Pawn);
             chessPiece.x = step * i;
             chessPiece.y = step * 6;
-            chessPiece.logic = new Pawn()
+
             this.addPieces(chessPiece);
         }
     }

@@ -1,3 +1,6 @@
+import { ChessPiece } from "../interfaces/ChessPiece.js";
+import { Pawn } from "../logic/pieces/pawn.js";
+
 export class Canvas {
     elements = new Map();
 
@@ -30,6 +33,8 @@ export class Canvas {
         let lastPiece = null;
         this.el.addEventListener("click", () => {
             const user = this.elements.get("user");
+
+            console.log(user.logic.pieces);
             setTimeout(() => {
                 let x = user.x / this.step;
                 let y = user.y / this.step;
@@ -37,21 +42,29 @@ export class Canvas {
                 const currentPiece = this.elements
                     .get("user")
                     .logic.pieces.get(`${x}${y}`);
-                console.log(currentPiece);
 
                 if (isSelected && lastPiece.logic.move(x, y)) {
                     const position = `${x}${y}`;
-                    const movingPiece = user.logic.pieces.get(`${lastPiece.x / 100}${lastPiece.y / 100}`);
-                    console.log(`${lastPiece.x / 100}${lastPiece.y / 100}`);
+
+                    const movingPiece = new ChessPiece(
+                        position,
+                        lastPiece.path,
+                        lastPiece.class
+                    );
+
                     movingPiece.x = x * this.step;
                     movingPiece.y = y * this.step;
-                    user.logic.pieces.delete(position);
-                    user.logic.pieces.set(position, movingPiece);
-                    user.toggleClick()
-                    this.render()
-                    isSelected = false
-                }
-                else if (currentPiece !== undefined) {
+                    movingPiece.logic.firstMove = false
+
+                    user.logic.addPieces(movingPiece);
+                    user.logic.removePieces(lastPiece.id);
+
+                    user.x = null;
+                    user.y = null;
+
+                    this.render();
+                    isSelected = false;
+                } else if (currentPiece !== undefined) {
                     isSelected = true;
                     currentPiece.logic.drawPositions(this.ctx, x, y);
                     lastPiece = currentPiece;
