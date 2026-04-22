@@ -1,0 +1,29 @@
+{
+	"name": "canvas",
+	"version": "0.1.0",
+	"description": "a pixel art based board game that tries to make you feel playing it in the 1990's",
+	"keywords": [
+		"pixel-art",
+		"board-game",
+		"canvas"
+	],
+	"homepage": "https://github.com/Nicolas121221/board-game#readme",
+	"bugs": {
+		"url": "https://github.com/Nicolas121221/board-game/issues"
+	},
+	"repository": {
+		"type": "git",
+		"url": "git+https://github.com/Nicolas121221/board-game.git"
+	},
+	"license": "MIT",
+	"author": "Nícolas Guedes",
+	"type": "module",
+	"main": "index.js",
+	"scripts": {
+		"dev": "tsc --watch"
+	},
+	"devDependencies": {
+		"typescript": "^6.0.3"
+	}
+}
+
